@@ -1,0 +1,3 @@
+[submodule "lib/games_catcher"]
+	path = lib/games_catcher
+	url = git@github.com:vitrine-app/games-catcher.git
