@@ -1,6 +1,6 @@
 from ctypes import *
 
-lib = cdll.LoadLibrary("./games-catcher.so")
+lib = cdll.LoadLibrary("./lib/games_catcher.so")
 
-lib.get_game.argtypes = [c_int]
-lib.get_game.restype = c_char_p
+lib.GetGame.argtypes = [c_int, c_char_p]
+lib.GetGame.restype = c_char_p
