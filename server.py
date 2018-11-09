@@ -12,4 +12,4 @@ api.add_resource(Game, '/games/<int:game_id>', endpoint='games')
 
 if __name__ == '__main__':
     populate_keys()
-    app.run(port=8000)
+    app.run(host='0.0.0.0', port=8000)

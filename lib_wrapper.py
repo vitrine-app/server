@@ -1,6 +1,11 @@
 from ctypes import *
 
-lib = cdll.LoadLibrary("./lib/games_catcher.so")
+lib = cdll.LoadLibrary('./lib/games_catcher.so')
 
-lib.GetGame.argtypes = [c_int, c_char_p]
+
+class GoString(Structure):
+    _fields_ = [('p', c_char_p), ('n', c_longlong)]
+
+
+lib.GetGame.argtypes = [c_int, GoString]
 lib.GetGame.restype = c_char_p
