@@ -1,4 +1,4 @@
-version: '3'
+version: '3.1'
 
 services:
   server:
@@ -8,6 +8,34 @@ services:
       args:
         vitrine_key: ${VITRINE_KEY}
     ports:
-      - '80:8000'
+      - 80:8000
     volumes:
       - .:/opt/app
+    env_file:
+      - ./database.env
+    environment:
+      MYSQL_ROOT_PASSWORD: ${VITRINE_KEY}
+
+  db:
+    container_name: vitrine-db
+    image: mysql:5.6
+    ports:
+      - 3306:3306
+    restart: always
+    env_file:
+      - ./database.env
+    environment:
+      MYSQL_ROOT_PASSWORD: ${VITRINE_KEY}
+    volumes:
+      - db_data:/var/lib/mysql
+
+  adminer:
+    container_name: vitrine-adminer
+    image: adminer
+    ports:
+      - 8080:8080
+    restart: always
+
+volumes:
+  db_data:
+    driver: local
