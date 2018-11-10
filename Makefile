@@ -10,7 +10,3 @@ run:
 clean:
 	cd lib/games_catcher
 	make clean
-
-docker:
-	docker build --build-arg vitrine_key=${VITRINE_KEY} -t vitrine-server .
-	docker run -p 80:8000 vitrine-server

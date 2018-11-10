@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  server:
+    container_name: vitrine-server
+    build:
+      context: .
+      args:
+        vitrine_key: ${VITRINE_KEY}
+    ports:
+      - '80:8000'
+    volumes:
+      - .:/opt/app
