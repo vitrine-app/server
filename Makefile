@@ -10,3 +10,15 @@ run:
 clean:
 	cd lib/games_catcher
 	make clean
+
+install:
+	docker exec vitrine-server pip3 install -r requirements.txt
+
+migrate:
+	docker exec vitrine-server python3 manage.py db migrate
+
+upgrade:
+	docker exec vitrine-server python3 manage.py db upgrade
+
+downgrade:
+	docker exec vitrine-server python3 manage.py db downgrade
