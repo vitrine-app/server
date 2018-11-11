@@ -16,6 +16,7 @@ services:
     environment:
       MYSQL_HOST: db
       MYSQL_ROOT_PASSWORD: ${VITRINE_KEY}
+      FLASK_ENV: development
 
   db:
     container_name: vitrine-db
