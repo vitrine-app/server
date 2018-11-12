@@ -32,7 +32,7 @@ class Game(db.Model):
     developer = db.relationship('Company', backref=db.backref('developer', uselist=False))
     publisher_id = db.Column(db.Integer, db.ForeignKey('companies.id'))
     publisher = db.relationship('Company', backref=db.backref('publisher', uselist=False))
-    release_date = db.Column(db.DateTime)
+    release_date = db.Column(db.BigInteger)
     genres = db.relationship('Genres', secondary=games_genres)
     cover = db.Column(db.String(255))
     screenshots = db.Column(db.Text)
@@ -42,6 +42,7 @@ class Game(db.Model):
 class Series(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     igdb_id = db.Column(db.BigInteger)
+    name = db.Column(db.String(255))
     created_at = db.Column(db.DateTime, default=datetime.now())
 
 

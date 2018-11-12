@@ -7,7 +7,7 @@ from middlewares.auth import auth_middleware
 
 
 class Game(Resource):
-    method_decorators = [auth_middleware]
+    # method_decorators = [auth_middleware]
 
     def __init__(self):
         super(Game, self).__init__()
