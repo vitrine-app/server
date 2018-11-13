@@ -6,11 +6,11 @@ from games_catcher import games_catcher, GoString
 from middlewares.auth import auth_middleware
 
 
-class Game(Resource):
+class ApiGame(Resource):
     # method_decorators = [auth_middleware]
 
     def __init__(self):
-        super(Game, self).__init__()
+        super(ApiGame, self).__init__()
         raw_key = os.getenv('IGDB_KEY')
         self.key = GoString(str.encode(raw_key), len(raw_key))
 

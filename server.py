@@ -1,13 +1,19 @@
 from flask import Flask
 from flask_restful import Api
+from flask_sqlalchemy import SQLAlchemy
+from os import getenv
 
 from lib.keys import populate_keys
-from models.game import Game
+from models.game import ApiGame
 
 app = Flask(__name__)
-api = Api(app)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:' + getenv('MYSQL_ROOT_PASSWORD') + '@' + getenv('MYSQL_HOST') + '/vitrine'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-api.add_resource(Game, '/games/<int:game_id>', endpoint='games')
+api = Api(app)
+db = SQLAlchemy(app)
+
+api.add_resource(ApiGame, '/games/<int:game_id>', endpoint='games')
 
 
 if __name__ == '__main__':
