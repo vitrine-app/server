@@ -3,7 +3,6 @@ from flask_restful import Api
 from flask_sqlalchemy import SQLAlchemy
 from os import getenv
 
-from lib.keys import populate_keys
 from models.game import ApiGame
 
 app = Flask(__name__)
@@ -17,5 +16,4 @@ api.add_resource(ApiGame, '/games/<int:game_id>', endpoint='games')
 
 
 if __name__ == '__main__':
-    populate_keys()
     app.run(host='0.0.0.0', port=8000)

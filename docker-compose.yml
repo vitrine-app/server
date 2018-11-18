@@ -5,31 +5,26 @@ services:
     container_name: vitrine-server
     build:
       context: .
-      args:
-        vitrine_key: ${VITRINE_KEY}
     ports:
       - 80:8000
     volumes:
       - .:/opt/app
     env_file:
-      - ./database.env
+      - .env
     environment:
-      MYSQL_HOST: db
-      MYSQL_ROOT_PASSWORD: ${VITRINE_KEY}
+      MYSQL_HOST: database
       FLASK_ENV: development
 
-  db:
+  database:
     container_name: vitrine-db
     image: mysql:5.6
     ports:
       - 3306:3306
     restart: always
     env_file:
-      - ./database.env
-    environment:
-      MYSQL_ROOT_PASSWORD: ${VITRINE_KEY}
+      - .env
     volumes:
-      - db_data:/var/lib/mysql
+      - db-data:/var/lib/mysql
 
   adminer:
     container_name: vitrine-adminer
@@ -39,5 +34,5 @@ services:
     restart: always
 
 volumes:
-  db_data:
+  db-data:
     driver: local

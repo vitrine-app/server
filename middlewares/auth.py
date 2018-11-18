@@ -14,7 +14,7 @@ def auth_middleware(func):
         parser.add_argument('Authorization', location='headers')
         try:
             token = parser.parse_args().__getattr__('Authorization')
-            decoded = jwt.decode(token, getenv('VITRINE_KEY'))
+            decoded = jwt.decode(token, getenv('VITRINE_PRIVATE_KEY'))
             request_timestamp = int(decoded.get('date') / 1000)
             current_timestamp = int(time())
             if current_timestamp - request_timestamp > request_delay:
