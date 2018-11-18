@@ -11,32 +11,32 @@ games_genres = db.Table('games_genres', db.Model.metadata,
 
 class Series(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    igdb_id = db.Column(db.BigInteger)
-    name = db.Column(db.String(255))
+    igdb_id = db.Column(db.BigInteger, nullable=False)
+    name = db.Column(db.String(255), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.now())
 
 
 class Company(db.Model):
     __tablename__ = 'companies'
     id = db.Column(db.Integer, primary_key=True)
-    igdb_id = db.Column(db.BigInteger)
-    name = db.Column(db.String(255))
+    igdb_id = db.Column(db.BigInteger, nullable=False)
+    name = db.Column(db.String(255), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.now())
 
 
 class Genre(db.Model):
     __tablename__ = 'genres'
     id = db.Column(db.Integer, primary_key=True)
-    igdb_id = db.Column(db.BigInteger)
-    name = db.Column(db.String(255))
+    igdb_id = db.Column(db.BigInteger, nullable=False)
+    name = db.Column(db.String(255), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.now())
 
 
 class Game(db.Model):
     __tablename__ = 'games'
     id = db.Column(db.Integer, primary_key=True)
-    igdb_id = db.Column(db.BigInteger)
-    name = db.Column(db.String(255))
+    igdb_id = db.Column(db.BigInteger, nullable=False)
+    name = db.Column(db.String(255), nullable=False)
     summary = db.Column(db.Text)
     rating = db.Column(db.SmallInteger)
     series_id = db.Column(db.Integer, db.ForeignKey('series.id'))
