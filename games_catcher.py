@@ -9,3 +9,6 @@ class GoString(Structure):
 
 games_catcher.GetGame.argtypes = [c_int]
 games_catcher.GetGame.restype = c_char_p
+
+games_catcher.GetFirstGame.argtypes = [GoString]
+games_catcher.GetFirstGame.restype = c_char_p
