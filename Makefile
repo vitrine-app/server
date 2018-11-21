@@ -24,7 +24,7 @@ downgrade:
 	docker exec vitrine-server python3 manage.py db downgrade
 
 encrypt:
-	@gpg -c --batch --passphrase ${VITRINE_KEY} .env
+	@gpg -ca --batch --passphrase ${VITRINE_KEY} .env
 
 decrypt:
-	@gpg -d --batch --yes --passphrase ${VITRINE_KEY} -o .env .env.gpg
+	@gpg -d --batch --yes --passphrase ${VITRINE_KEY} -o .env .env.asc
