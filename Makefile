@@ -4,7 +4,7 @@ build:
 	cd lib/games_catcher && make deps && make
 	mv lib/games_catcher/games_catcher.so lib/
 
-run:
+run: build
 	python3 server.py
 
 clean:

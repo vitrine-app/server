@@ -8,7 +8,6 @@ ADD . /opt/app
 WORKDIR /opt/app
 
 RUN pip3 install -r requirements.txt
-RUN make build
 
 EXPOSE 8000
 
