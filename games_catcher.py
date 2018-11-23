@@ -12,3 +12,6 @@ games_catcher.GetGame.restype = c_char_p
 
 games_catcher.GetFirstGame.argtypes = [GoString]
 games_catcher.GetFirstGame.restype = c_char_p
+
+games_catcher.ResearchGames.argtypes = [GoString, c_int]
+games_catcher.ResearchGames.restype = c_char_p
