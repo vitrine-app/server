@@ -2,7 +2,7 @@ import json
 from flask_restful import Resource
 
 from games_catcher import games_catcher, GoString
-from middlewares.auth import auth_middleware
+from app.middlewares.auth import auth_middleware
 
 
 class ApiResearch(Resource):
