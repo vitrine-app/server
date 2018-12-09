@@ -5,11 +5,10 @@ build:
 	mv lib/games_catcher/games_catcher.so lib/
 
 run: build
-	python3 server.py
+	gunicorn -w 4 -b 0.0.0.0:8000 server:app
 
 clean:
-	cd lib/games_catcher
-	make clean
+	cd lib/games_catcher && make clean
 
 install:
 	docker exec vitrine-server pip3 install -r requirements.txt

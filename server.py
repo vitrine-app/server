@@ -3,8 +3,8 @@ from flask_restful import Api
 from flask_sqlalchemy import SQLAlchemy
 from os import getenv
 
-from models.game import ApiGame
-from models.research import ApiResearch
+from app.models.game import ApiGame
+from app.models.research import ApiResearch
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:' + getenv('MYSQL_ROOT_PASSWORD') + '@' + getenv('MYSQL_HOST') + '/vitrine'
