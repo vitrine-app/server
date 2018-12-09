@@ -4,7 +4,7 @@ from flask_restful import abort, reqparse
 from os import getenv
 from time import time
 
-request_delay = 5
+request_delay = 10
 
 
 def auth_middleware(func):
