@@ -5,9 +5,9 @@ from games_catcher import games_catcher, GoString
 from app.middlewares.auth import auth_middleware
 
 
-class Research(Resource):
+class FirstGame(Resource):
     method_decorators = [auth_middleware]
 
-    def get(self, game_name, list_size):
-        res = games_catcher.ResearchGames(GoString(str.encode(game_name), len(game_name)), list_size)
+    def get(self, game_name):
+        res = games_catcher.GetFirstGame(GoString(str.encode(game_name), len(game_name)))
         return {"data": json.loads(res.decode('utf-8'))}
